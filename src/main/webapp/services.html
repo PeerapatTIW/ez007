@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพิ่มข้อมูลหนัง</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            color: white;
+            font-size: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        .logout-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+
+        /* Main content styles */
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+            color: #007BFF;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>เว็บไซต์ของฉัน</h1>
+        <ul>
+            <li><a href="home.html">หน้าหลัก</a></li>
+            <li><a href="display-info">ข้อมูลหนัง</a></li>
+            <li><a href="search.html">ค้นหาข้อมูล</a></li>
+            <li><a href="services.html">เพิ่มข้อมูลหนัง</a></li>
+            <li><a href="index.html" class="logout-btn">ออกจากระบบ</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>เพิ่มข้อมูลภาพยนตร์</h2>
+        <form action="save-movie" method="POST">
+            <div class="form-group">
+                <label for="movie-title">ชื่อภาพยนตร์:</label>
+                <input type="text" id="movie-title" name="movie_title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">ประเภทหนัง (Genre):</label>
+                <select id="genre" name="genre" required>
+                    <option value="">-- เลือกประเภท --</option>
+                    <option value="Action">แอคชั่น</option>
+                    <option value="Comedy">คอมเมดี้</option>
+                    <option value="Drama">ดราม่า</option>
+                    <option value="Horror">สยองขวัญ</option>
+                    <option value="Romance">โรแมนติก</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="director">ผู้กำกับ (Director):</label>
+                <input type="text" id="director" name="director" required>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">ความยาวภาพยนตร์ (Duration):</label>
+                <input type="text" id="duration" name="duration" placeholder="เช่น 2 ชั่วโมง 15 นาที" required>
+            </div>
+
+           <div class="form-group">
+                <label for="synopsis">เรื่องย่อ:</label>
+                <textarea id="synopsis" name="synopsis" placeholder="ใส่เรื่องย่อของภาพยนตร์" required></textarea>
+            </div>
+          
+            <button type="submit" class="btn">บันทึกข้อมูล</button>
+        </form>
+    </div>
+</body>
+</html>
